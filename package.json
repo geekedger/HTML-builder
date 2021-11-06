@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "html-builder task for RSSchool",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "01-read-file": "node.exe .\\01-read-file\\index.js",
+    "02-write-file": "node.exe .\\02-write-file\\index.js"
   },
   "author": "evgeniimal",
   "license": "ISC",
@@ -14,5 +16,8 @@
   "devDependencies": {
     "@types/node": "^16.11.4",
     "eslint": "^7.32.0"
+  },
+  "dependencies": {
+    "prompt": "^1.2.0"
   }
 }
