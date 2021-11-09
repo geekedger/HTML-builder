@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
   
 const dir = __dirname + '/secret-folder/';
 fs.readdir(dir, (err, files) => {
@@ -7,14 +8,14 @@ fs.readdir(dir, (err, files) => {
   else {
     console.log("\nCurrent directory filenames:");
     files.forEach(file => {
-      // console.log(dir + file);
       fs.stat(dir + file, (err, stats) => {
         if (err) {
           console.error(err)
           return
         } else if (stats.isFile()) {
-            const [name, ext] = file.split('.');
-            console.log(name + ' -', ext + ' -', convertBytes(stats.size));
+            const ext = path.extname(file);
+            const name = path.basename(file, ext);
+            console.log(name + ' -', ext.slice(1) + ' -', convertBytes(stats.size));
         }
       })
     })
@@ -36,4 +37,3 @@ const convertBytes = function(bytes) {
 
   return (bytes / Math.pow(1024, i)).toFixed(3) + " " + sizes[i]
 }
-
