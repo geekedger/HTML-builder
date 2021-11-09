@@ -3,7 +3,6 @@ const readline = require('readline');
 const { stdin: input, stdout: output } = require('process');
 const { exit } = require('process');
 const path = require('path');
-const prompt = require('prompt');
 
 const rl = readline.createInterface({ input, output });
 const wstream = fs.createWriteStream(path.join(__dirname, 'out.txt'));
